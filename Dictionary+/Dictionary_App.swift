@@ -15,5 +15,10 @@ struct Dictionary_App: App {
         }
         .defaultSize(width: 700, height: 700)
         .windowStyle(.hiddenTitleBar)
+        .windowToolbarStyle(.unifiedCompact)
+
+        Settings {
+            SettingsView()
+        }
     }
 }

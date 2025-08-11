@@ -17,7 +17,15 @@ enum DictionaryAPIError: Error, LocalizedError {
 struct DictionaryAPI {
     struct Entry: Decodable {
         let word: String
+        let phonetic: String?
+        let phonetics: [Phonetic]?
+        let origin: String?
         let meanings: [Meaning]?
+    }
+
+    struct Phonetic: Decodable {
+        let text: String?
+        let audio: String?
     }
 
     struct Meaning: Decodable {
@@ -27,6 +35,9 @@ struct DictionaryAPI {
 
     struct Definition: Decodable {
         let definition: String
+        let example: String?
+        let synonyms: [String]?
+        let antonyms: [String]?
     }
 
     static func fetchEntry(for word: String, languageCode: String = "en") async throws -> Entry {
