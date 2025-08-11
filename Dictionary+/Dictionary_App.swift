@@ -13,5 +13,7 @@ struct Dictionary_App: App {
         WindowGroup {
             ContentView()
         }
+        .defaultSize(width: 700, height: 700)
+        .windowStyle(.hiddenTitleBar)
     }
 }
